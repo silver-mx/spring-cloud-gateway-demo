@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      metrics:
+        enabled: true
+      routes:
+        - id: post-anything
+          uri: https://httpbin.org/anything
+          predicates:
+            - Path=/post
+            - Method=POST
+          filters:
+            - AddResponseHeader=X-Powered-By,Spring-Cloud-Gateway
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
+

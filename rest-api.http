@@ -1,0 +1,13 @@
+### POST some JSON
+
+POST http://localhost:8080/post
+Accept: application/json
+
+{
+    "id": 999,
+    "value": "content"
+}
+
+### GET gateway actuator
+
+GET http://localhost:8080/actuator/gateway/routes
